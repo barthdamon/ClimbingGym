@@ -1,0 +1,88 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using Newtonsoft.Json.Linq;
+
+public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
+{
+    private JToken m_SeedJson;
+
+    public bool m_LoadSaveGame = true;
+
+    private string SaveDataPath
+    {
+        get
+        {
+            string saveFilePath = Application.persistentDataPath + "/ClimbingGym.json";
+            return saveFilePath;
+        }
+    }
+
+    public JToken SeedJson
+    {
+        get
+        {
+            if (m_SeedJson == null)
+            {
+                LoadSeedJSON();
+            }
+
+            return m_SeedJson;
+        }
+    }
+
+    void Awake()
+    {
+        LoadSeedJSON();
+        LoadSaveGame();
+        SeedData();
+    }
+
+    void LoadSeedJSON()
+    {
+        string seedFilePath = Application.streamingAssetsPath + "/WallData.json";
+        if (File.Exists(seedFilePath))
+        {
+            string fileContents = File.ReadAllText(seedFilePath);
+            m_SeedJson = JToken.Parse(fileContents);
+        }
+    }
+
+    public void SeedData()
+    {
+        if (m_SeedJson == null)
+        {
+            LoadSeedJSON();
+        }
+
+        CGWallBuilder.GetOrCreateInstance().LoadWallData(m_SeedJson);
+        //TBLLogChannels.instance().LogChannel(TBLLogChannel.Debug, seedFilePath);
+    }
+
+    public void SaveGame()
+    {
+        JObject saveData = new JObject();
+        //TBLReactionProcessor.GetOrCreateInstance().AppendJSON(ref saveData);
+
+        File.WriteAllText(SaveDataPath, saveData.ToString());
+    }
+
+    void LoadSaveGame()
+    {
+        if (!m_LoadSaveGame)
+        {
+            return;
+        }
+
+        string saveDataString = File.ReadAllText(SaveDataPath);
+        if (saveDataString.Length > 0)
+        {
+            JObject saveData = JObject.Parse(saveDataString);
+            if (saveData != null)
+            {
+                //TBLReactionProcessor.GetOrCreateInstance().LoadSavedAppliedSources(saveData);
+            }
+        }
+    }
+}
