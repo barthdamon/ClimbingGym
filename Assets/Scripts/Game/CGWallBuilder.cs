@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
 {
-    List<CGWallInfo> m_WallInfos;
+    List<CGWallInfo> m_WallInfos = new List<CGWallInfo>();
 
     public void LoadWallData(JToken json)
     {

@@ -15,7 +15,7 @@ public class CGNodeInfo : JSONObject
         m_RawGrid = (string)json.SelectToken("Grid");
         m_RawPosition = (string)json.SelectToken("Position");
         m_RawOrientation = (string)json.SelectToken("Orientation");
-        CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + m_RawPosition + m_RawOrientation);
+        CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + "," + m_RawPosition + "," + m_RawOrientation);
     }
 
     public override void AppendJSON(ref JObject json)

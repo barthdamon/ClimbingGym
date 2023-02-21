@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CGDebug : MonoBehaviourSingleton<CGDebug>
+public class TBLDebug : MonoBehaviourSingleton<TBLDebug>
 {
 	public GameObject m_DebugPanel;
 

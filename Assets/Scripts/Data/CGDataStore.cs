@@ -75,6 +75,11 @@ public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
             return;
         }
 
+        if (!File.Exists(SaveDataPath))
+        {
+            return;
+        }
+
         string saveDataString = File.ReadAllText(SaveDataPath);
         if (saveDataString.Length > 0)
         {

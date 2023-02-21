@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class CGWallInfo : JSONObject
 {
     public string m_Title;
-    public List<CGNodeInfo> m_NodeInfo;
+    public List<CGNodeInfo> m_NodeInfo = new List<CGNodeInfo>();
 
     public override void ParseJSON(JToken json)
     {
