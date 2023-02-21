@@ -1,0 +1,203 @@
+{
+  "narratives":
+  [
+    {
+      "narrative_identifier": "tutorial",
+      "stage":0,
+      "experiences": [
+          {
+              "experience_identifier": "seed",
+              "flotsam_type": "thimble",
+              "incubation": {
+                "begin_result_identifier": "result-spawn-thimble"
+              },
+              "results": [
+                  {
+                      "result_identifier": "result-spawn-thimble",
+                      "title": "Spawn Thimble",
+                      "effects": [
+                          {
+                              "sources": [
+                                  {
+                                      "identifier": "Spawn",
+                                      "tag": "Spawn"
+                                  }
+                              ],
+                              "reactions":[
+                                {
+                                  "outputs":
+                                  [
+                                    {
+                                      "output_type": "TBLNarrativeStagePass",
+                                      "narrative_identifier": "tutorial"
+                                    }
+                                  ]
+                                }
+                              ]
+                          }
+                      ]
+                  }
+              ]
+          },
+          {
+              "experience_identifier": "ink",
+              "flotsam_type": "ink",
+              "incubation": {
+                "begin_result_identifier": "result-ink"
+              },
+              "results": [
+                  {
+                      "result_identifier": "result-ink",
+                      "title": "Ink",
+                      "effects": [
+                        {
+                            "sources": [
+                                {
+                                    "identifier": "Ink",
+                                    "tag": "Ink"
+                                }
+                            ],
+                            "reactions":[
+                              {
+                                "outputs":
+                                [
+                                  {
+                                    "output_type": "TBLNarrativeStagePass",
+                                    "narrative_identifier": "tutorial"
+                                  }
+                                ]
+                              }
+                            ]
+                        }
+                      ]
+                  }
+              ]
+          },
+          {
+              "experience_identifier": "ink-delayed",
+              "flotsam_type": "ink",
+              "incubation": {
+                "duration": 1,
+                "begin_result_identifier": "result-ink-begin",
+                "end_result_identifier": "result-ink-end"
+              },
+              "results": [
+                  {
+                      "result_identifier": "result-ink-begin",
+                      "title": "Ink Begin",
+                      "effects": [
+                        {
+                            "reactions":[
+                              {
+                                "outputs":
+                                [
+                                  {
+                                    "output_type": "TBLNarrativeStagePass",
+                                    "narrative_identifier": "tutorial"
+                                  }
+                                ]
+                              }
+                            ]
+                        }
+                      ]
+                  },
+                  {
+                      "result_identifier": "result-ink-end",
+                      "title": "Ink End",
+                      "effects": [
+                        {
+                            "sources": [
+                                {
+                                    "identifier": "Ink",
+                                    "tag": "Ink"
+                                }
+                            ]
+                        }
+                      ]
+                  }
+              ]
+          }
+      ]
+    }
+  ],
+    "listeners": [
+      {
+        "template":
+        {
+          "listener_type" : "BaseListener",
+          "reactions":
+          [
+            {
+              "sources":
+              [
+                {
+                  "tag": "Spawn"
+                }
+              ],
+              "outputs":
+              [
+                {
+                  "output_type": "TBLThimbleSpawnReactionOutput",
+                  "listener":
+                  {
+                    "listener_type" : "Thimble",
+                    "reactions":
+                    [
+                      {
+                        "sources":
+                        [
+                          {
+                            "tag": "Spawn"
+                          }
+                        ],
+                        "outputs":
+                        [
+                          {
+                            "output_type": "TBLAnimationReactionOutput",
+                            "key": "orgy_trigger"
+                          }
+                        ]
+                      },
+                      {
+                        "sources":
+                        [
+                          {
+                            "tag": "Ink"
+                          }
+                        ],
+                        "outputs":
+                        [
+                          {
+                            "output_type": "TBLAnimationReactionOutput",
+                            "key": "party_trigger"
+                          },
+                          {
+                            "output_type": "TBLColorReactionOutput",
+                            "hash": "random"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "sources":
+              [
+                {
+                  "tag": "NarrativeStagePass"
+                }
+              ],
+              "outputs":
+              [
+                {
+                  "output_type": "TBLNarrativeStagePass",
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+}
