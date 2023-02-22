@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
 {
+    public Transform m_HoldParent;
     public GameObject m_HoldNodePrefab;
     public List<CGHoldNode> m_SpawnedHolds = new List<CGHoldNode>();
 
@@ -32,7 +33,7 @@ public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
         {
             foreach (CGNodeInfo info in m_WallInfos[WallIndex].m_NodeInfos)
             {
-                GameObject newHold = Instantiate(m_HoldNodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject newHold = Instantiate(m_HoldNodePrefab, m_HoldParent);
                 CGHoldNode holdNode = newHold.GetComponent<CGHoldNode>();
                 m_SpawnedHolds.Add(holdNode);
                 holdNode.ProcessInfo(info);

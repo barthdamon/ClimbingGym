@@ -11,6 +11,7 @@ public class CGNodeInfo : JSONObject
     string m_RawGrid;
     string m_RawPosition;
     string m_RawOrientation;
+    string m_Kind;
 
     int m_XGrid;
     int m_YGrid;
@@ -26,8 +27,9 @@ public class CGNodeInfo : JSONObject
         m_RawPosition = (string)json.SelectToken("Position");
         // will have to make a fake grid with this and find the angle given the two points
         m_RawOrientation = (string)json.SelectToken("Orientation");
+        m_Kind = (string)json.SelectToken("Kind");
 
-        if (m_RawGrid.Contains("sn"))
+        if (m_RawGrid.Contains("SN"))
         {
             m_XGrid = 0;
         }
@@ -46,17 +48,17 @@ public class CGNodeInfo : JSONObject
             numberstring = m_RawGrid.Substring(m_RawGrid.Length - 2);
         }
 
-        m_YGrid = int.Parse(numberstring);
+        m_YGrid = int.Parse(numberstring) - 1;
 
         string numbersOnly = Regex.Replace(m_RawPosition, "[^0-9]", "");
-        m_XCoord = int.Parse(numbersOnly);
+        m_YCoord = int.Parse(numbersOnly);
 
         string[] letters = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M" };
         for (int i = 0; i < letters.Length; ++i)
         {
             if (m_RawPosition.Contains(letters[i]))
             {
-                m_YCoord = i;
+                m_XCoord = i;
             }
         }
 
@@ -81,5 +83,10 @@ public class CGNodeInfo : JSONObject
         });
         json.Add("choices", choices);
         */
+    }
+
+    public bool IsBigHold()
+    {
+        return m_Kind.Contains("BIG");
     }
 }

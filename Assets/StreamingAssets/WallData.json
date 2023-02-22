@@ -5,33 +5,189 @@
             "Nodes": [
                 {
                     "Grid": "DX1",
+                    "Kind": "FOOTHOLD",
                     "Position": "F4",
                     "Orientation": "G4"
                 },
                 {
                     "Grid": "DX1",
+                    "Kind": "FOOTHOLD",
                     "Position": "A10",
                     "Orientation": "B10"
                 },
                 {
                     "Grid": "DX2",
+                    "Kind": "BIGHOLD",
                     "Position": "F1",
                     "Orientation": "D3"
                 },
                 {
                     "Grid": "DX2",
+                    "Kind": "BIGHOLD",
                     "Position": "G3",
                     "Orientation": "E5"
                 },
                 {
                     "Grid": "DX2",
+                    "Kind": "BIGHOLD",
                     "Position": "A9",
                     "Orientation": "C10"
                 },
                 {
                     "Grid": "SN2",
+                    "Kind": "FOOTHOLD",
                     "Position": "G3",
                     "Orientation": "H3"
+                },
+                {
+                    "Grid": "DX3",
+                    "Kind": "FOOTHOLD",
+                    "Position": "C6",
+                    "Orientation": "C5"
+                },
+                {
+                    "Grid": "SN3",
+                    "Kind": "BIGHOLD",
+                    "Position": "G4",
+                    "Orientation": "G1"
+                },
+                {
+                    "Grid": "SN3",
+                    "Kind": "BIGHOLD",
+                    "Position": "M10",
+                    "Orientation": "I8"
+                },
+                {
+                    "Grid": "DX4",
+                    "Kind": "BIGHOLD",
+                    "Position": "B2",
+                    "Orientation": "D3"
+                },
+                {
+                    "Grid": "SN4",
+                    "Kind": "BIGHOLD",
+                    "Position": "M8",
+                    "Orientation": "L10"
+                },
+                {
+                    "Grid": "DX5",
+                    "Kind": "FOOTHOLD",
+                    "Position": "E1",
+                    "Orientation": "E2"
+                },
+                {
+                    "Grid": "DX5",
+                    "Kind": "BIGHOLD",
+                    "Position": "C3",
+                    "Orientation": "C6"
+                },
+                {
+                    "Grid": "DX5",
+                    "Kind": "BIGHOLD",
+                    "Position": "E9",
+                    "Orientation": "H9"
+                },
+                {
+                    "Grid": "SN5",
+                    "Kind": "FOOTHOLD",
+                    "Position": "H1",
+                    "Orientation": "H10"
+                },
+                {
+                    "Grid": "SN5",
+                    "Kind": "FOOTHOLD",
+                    "Position": "M6",
+                    "Orientation": "M5"
+                },
+                {
+                    "Grid": "SN5",
+                    "Kind": "FOOTHOLD",
+                    "Position": "E7",
+                    "Orientation": "E6"
+                },
+                {
+                    "Grid": "SN6",
+                    "Kind": "BIGHOLD",
+                    "Position": "H2",
+                    "Orientation": "E2"
+                },
+                {
+                    "Grid": "SN6",
+                    "Kind": "BIGHOLD",
+                    "Position": "L7",
+                    "Orientation": "M9"
+                },
+                {
+                    "Grid": "SN6",
+                    "Kind": "BIGHOLD",
+                    "Position": "F9",
+                    "Orientation": "F6"
+                },
+                {
+                    "Grid": "SN7",
+                    "Kind": "BIGHOLD",
+                    "Position": "4M",
+                    "Orientation": "5A"
+                },
+                {
+                    "Grid": "SN7",
+                    "Kind": "BIGHOLD",
+                    "Position": "9G",
+                    "Orientation": "8E"
+                },
+                {
+                    "Grid": "DX7",
+                    "Kind": "FOOTHOLD",
+                    "Position": "10B",
+                    "Orientation": "10A"
+                },
+                {
+                    "Grid": "SN8",
+                    "Kind": "BIGHOLD",
+                    "Position": "1L",
+                    "Orientation": "10H"
+                },
+                {
+                    "Grid": "SN8",
+                    "Kind": "BIGHOLD",
+                    "Position": "3I",
+                    "Orientation": "5L"
+                },
+                {
+                    "Grid": "DX8",
+                    "Kind": "FOOTHOLD",
+                    "Position": "1E",
+                    "Orientation": "1F"
+                },
+                {
+                    "Grid": "DX8",
+                    "Kind": "FOOTHOLD",
+                    "Position": "5A",
+                    "Orientation": "6A"
+                },
+                {
+                    "Grid": "SN8",
+                    "Kind": "BIGHOLD",
+                    "Position": "8C",
+                    "Orientation": "9E"
+                },
+                {
+                    "Grid": "SN9",
+                    "Kind": "BIGHOLD",
+                    "Position": "10M",
+                    "Orientation": "1A"
+                },
+                {
+                    "Grid": "DX9",
+                    "Kind": "BIGHOLD",
+                    "Position": "2A",
+                    "Orientation": "4C"
+                },
+                {
+                    "Grid": "DX9",
+                    "Kind": "BIGHOLD",
+                    "Position": "7E",
+                    "Orientation": "9E"
                 }
             ]
         }
