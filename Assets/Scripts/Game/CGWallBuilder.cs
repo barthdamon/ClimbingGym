@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
 {
+    public GameObject m_HoldNodePrefab;
+    public List<CGHoldNode> m_SpawnedHolds = new List<CGHoldNode>();
+
     List<CGWallInfo> m_WallInfos = new List<CGWallInfo>();
 
     public void LoadWallData(JToken json)
@@ -17,6 +20,22 @@ public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
                 CGWallInfo newWall = new CGWallInfo();
                 newWall.ParseJSON(wallJSON);
                 m_WallInfos.Add(newWall);
+            }
+        }
+
+        LoadWall(0);
+    }
+
+    void LoadWall(int WallIndex)
+    {
+        if (m_WallInfos.Count > WallIndex)
+        {
+            foreach (CGNodeInfo info in m_WallInfos[WallIndex].m_NodeInfos)
+            {
+                GameObject newHold = Instantiate(m_HoldNodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                CGHoldNode holdNode = newHold.GetComponent<CGHoldNode>();
+                m_SpawnedHolds.Add(holdNode);
+                holdNode.ProcessInfo(info);
             }
         }
     }

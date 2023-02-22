@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 2077423476}
   - component: {fileID: 2077423478}
   - component: {fileID: 2077423477}
+  - component: {fileID: 2077423479}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -359,3 +360,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LoadSaveGame: 1
+--- !u!114 &2077423479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077423475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6a594f51b93495ca77911222fbfb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HoldNodePrefab: {fileID: 1836191735709406475, guid: 40ff2dc7c92194cf1ab3c079f4caf67d, type: 3}
+  m_SpawnedHolds: []
