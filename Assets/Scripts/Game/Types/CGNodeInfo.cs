@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 public class CGNodeInfo : JSONObject
 {
     string m_RawGrid;
+    string m_RawRotGrid;
     string m_RawPosition;
     string m_RawOrientation;
     string m_Kind;
@@ -17,6 +18,13 @@ public class CGNodeInfo : JSONObject
     int m_YGrid;
     int m_XCoord;
     int m_YCoord;
+
+    int m_XRotGrid;
+    int m_YRotGrid;
+    int m_XRotCoord;
+    int m_YRotCoord;
+
+    Vector2 m_RotPosition;
 
     public Vector2 m_Position;
     public float m_Orientation;
@@ -28,6 +36,7 @@ public class CGNodeInfo : JSONObject
         // will have to make a fake grid with this and find the angle given the two points
         m_RawOrientation = (string)json.SelectToken("Orientation");
         m_Kind = (string)json.SelectToken("Kind");
+        m_RawRotGrid = (string)json.SelectToken("RotGrid");
 
         if (m_RawGrid.Contains("SN"))
         {
@@ -36,6 +45,15 @@ public class CGNodeInfo : JSONObject
         else
         {
             m_XGrid = 1;
+        }
+
+        if (m_RawRotGrid.Contains("SN"))
+        {
+            m_XRotGrid = 0;
+        }
+        else
+        {
+            m_XRotGrid = 1;
         }
 
         string numberstring = "";
@@ -49,6 +67,18 @@ public class CGNodeInfo : JSONObject
         }
 
         m_YGrid = int.Parse(numberstring) - 1;
+
+        string rotnumberstring = "";
+        if (m_RawRotGrid.Length <= 3)
+        {
+            rotnumberstring = m_RawRotGrid.Substring(m_RawRotGrid.Length - 1);
+        }
+        else
+        {
+            rotnumberstring = m_RawRotGrid.Substring(m_RawRotGrid.Length - 2);
+        }
+
+        m_YRotGrid = int.Parse(rotnumberstring) - 1;
 
         string numbersOnly = Regex.Replace(m_RawPosition, "[^0-9]", "");
         m_YCoord = int.Parse(numbersOnly);
@@ -65,6 +95,21 @@ public class CGNodeInfo : JSONObject
         int x = (m_XGrid * 10) + m_XCoord;
         int y = (m_YGrid * 10) + m_YCoord;
         m_Position = new Vector2(x, y);
+
+        string numbersOnlyRot = Regex.Replace(m_RawOrientation, "[^0-9]", "");
+        m_YRotCoord = int.Parse(numbersOnlyRot);
+        for (int i = 0; i < letters.Length; ++i)
+        {
+            if (m_RawOrientation.Contains(letters[i]))
+            {
+                m_XRotCoord = i;
+            }
+        }
+
+        int xRot = (m_XRotGrid * 10) + m_XRotCoord;
+        int yRot = (m_YRotGrid * 10) + m_YRotCoord;
+
+        m_RotPosition = new Vector2(xRot, yRot);
 
         CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + "," + m_RawPosition + "," + m_RawOrientation + " == (" + x + "," + y + ")");
     }
