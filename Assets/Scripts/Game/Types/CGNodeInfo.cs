@@ -111,6 +111,10 @@ public class CGNodeInfo : JSONObject
 
         m_RotPosition = new Vector2(xRot, yRot);
 
+        int xCos = xRot - x;
+        int yCos = yRot - y;
+        m_Orientation = Mathf.Atan(xCos / yCos);
+
         CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + "," + m_RawPosition + "," + m_RawOrientation + " == (" + x + "," + y + ")");
     }
 

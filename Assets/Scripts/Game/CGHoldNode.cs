@@ -13,6 +13,7 @@ public class CGHoldNode : MonoBehaviour
     {
         m_NodeInfo = Info;
         gameObject.transform.localPosition = new Vector3(m_NodeInfo.m_Position.x, m_NodeInfo.m_Position.y, 0f);
+        gameObject.transform.localEulerAngles = new Vector3(0f, 0f, m_NodeInfo.m_Orientation);
         m_BigMesh.enabled = m_NodeInfo.IsBigHold();
         m_FootMesh.enabled = !m_NodeInfo.IsBigHold();
     }
