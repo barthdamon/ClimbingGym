@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using TMPro;
 
 public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
 {
     private JToken m_SeedJson;
 
     public bool m_LoadSaveGame = true;
+    public TMP_Text m_DebugText;
 
     private string SaveDataPath
     {
@@ -34,6 +36,7 @@ public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
 
     void Awake()
     {
+        m_DebugText.text = "Awake";
         LoadSeedJSON();
         LoadSaveGame();
         SeedData();
@@ -41,11 +44,13 @@ public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
 
     void LoadSeedJSON()
     {
+        m_DebugText.text = "Loading";
         string seedFilePath = Application.streamingAssetsPath + "/WallData.json";
         if (File.Exists(seedFilePath))
         {
             string fileContents = File.ReadAllText(seedFilePath);
             m_SeedJson = JToken.Parse(fileContents);
+            m_DebugText.text = "Loaded";
         }
     }
 
