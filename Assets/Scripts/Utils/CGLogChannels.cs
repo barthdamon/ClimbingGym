@@ -38,10 +38,10 @@ public class CGLogChannels : MonoBehaviourSingleton<CGLogChannels>
 			else
 				return CGLogChannel.Open;
 #else
-			return TBLLogChannel.Open;
+			return CGLogChannel.Open;
 #endif
-		}
-	}
+        }
+    }
 
 	public void LogChannel(CGLogChannel channel, string text, params object[] args)
 	{
