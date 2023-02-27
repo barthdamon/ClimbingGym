@@ -46,6 +46,16 @@ public class CGDataStore : MonoBehaviourSingleton<CGDataStore>
     {
         m_DebugText.text = "Loading";
         string seedFilePath = Application.streamingAssetsPath + "/WallData.json";
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(seedFilePath);
+            www.SendWebRequest();
+
+            m_DebugText.text = "Waiting For Handler";
+            while (!www.downloadHandler.isDone) { }
+            m_DebugText.text = "Handler Done";
+            m_SeedJson = JToken.Parse(www.downloadHandler.text);
+        }
         if (File.Exists(seedFilePath))
         {
             string fileContents = File.ReadAllText(seedFilePath);
