@@ -6,20 +6,26 @@ public class CGHoldNode : MonoBehaviour
 {
     public CGNodeInfo m_NodeInfo;
 
-    public MeshRenderer m_BigMesh;
-    public MeshRenderer m_FootMesh;
+    public List<MeshRenderer> m_BigMeshes;
+    public List<MeshRenderer> m_FootMeshs;
 
     public float m_AxisScale;
 
-    float m_MeterConversion = 0.01f;
+    float m_MeterConversion = 0.001f;
 
     public void ProcessInfo(CGNodeInfo Info)
     {
         m_NodeInfo = Info;
         gameObject.transform.localPosition = new Vector3(HorizontalPosition(), VerticalPosition(), 0f);
         gameObject.transform.localEulerAngles = new Vector3(m_NodeInfo.m_Orientation, 0f, 0f);
-        m_BigMesh.enabled = m_NodeInfo.IsBigHold();
-        m_FootMesh.enabled = !m_NodeInfo.IsBigHold();
+        for (int i = 0; i < m_BigMeshes.Count; ++i)
+        {
+            m_BigMeshes[i].enabled = m_NodeInfo.IsBigHold();
+        }
+        for (int i = 0; i < m_FootMeshs.Count; ++i)
+        {
+            m_FootMeshs[i].enabled = !m_NodeInfo.IsBigHold();
+        }
     }
 
 
