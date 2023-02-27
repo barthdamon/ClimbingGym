@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: d1cfeb4c13ba9e44e8d6096a11e8d046
+timeCreated: 1570147405
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bolt_big
+    100002: Bolt_Small_001
+    100004: Bolt_Small_002
+    100006: Bolt_Small_003
+    100008: Hold_Large_Plastic
+    100010: Hold_Small_Plastic
+    100012: Small_Hold_Bolt
+    100014: Small_Hold_Washer
+    100016: //RootNode
+    100018: Washer_Big
+    100020: Washer_Small_001
+    100022: Washer_Small_002
+    100024: Washer_Small_003
+    400000: Bolt_big
+    400002: Bolt_Small_001
+    400004: Bolt_Small_002
+    400006: Bolt_Small_003
+    400008: Hold_Large_Plastic
+    400010: Hold_Small_Plastic
+    400012: Small_Hold_Bolt
+    400014: Small_Hold_Washer
+    400016: //RootNode
+    400018: Washer_Big
+    400020: Washer_Small_001
+    400022: Washer_Small_002
+    400024: Washer_Small_003
+    2300000: Bolt_big
+    2300002: Bolt_Small_001
+    2300004: Bolt_Small_002
+    2300006: Bolt_Small_003
+    2300008: Hold_Large_Plastic
+    2300010: Hold_Small_Plastic
+    2300012: Small_Hold_Bolt
+    2300014: Small_Hold_Washer
+    2300016: Washer_Big
+    2300018: Washer_Small_001
+    2300020: Washer_Small_002
+    2300022: Washer_Small_003
+    3300000: Bolt_big
+    3300002: Bolt_Small_001
+    3300004: Bolt_Small_002
+    3300006: Bolt_Small_003
+    3300008: Hold_Large_Plastic
+    3300010: Hold_Small_Plastic
+    3300012: Small_Hold_Bolt
+    3300014: Small_Hold_Washer
+    3300016: Washer_Big
+    3300018: Washer_Small_001
+    3300020: Washer_Small_002
+    3300022: Washer_Small_003
+    4300000: Hold_Small_Plastic
+    4300002: Small_Hold_Bolt
+    4300004: Small_Hold_Washer
+    4300006: Hold_Large_Plastic
+    4300008: Bolt_big
+    4300010: Washer_Big
+    4300012: Washer_Small_001
+    4300014: Bolt_Small_001
+    4300016: Washer_Small_002
+    4300018: Bolt_Small_002
+    4300020: Bolt_Small_003
+    4300022: Washer_Small_003
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
