@@ -101,12 +101,6 @@ public class CGNodeInfo : JSONObject
         m_Position = new Vector2(x, y);
 
 
-
-
-
-
-
-
         string numbersOnlyRot = Regex.Replace(m_RawOrientation, "[^0-9]", "");
         m_YRotCoord = int.Parse(numbersOnlyRot);
         for (int i = 0; i < letters.Length; ++i)
@@ -124,12 +118,9 @@ public class CGNodeInfo : JSONObject
 
         float xCos = xRot - x;
         float yCos = yRot - y;
-        if (yCos > 0)
-        {
-            m_Orientation = Mathf.Atan(xCos / yCos);
-        }
+        m_Orientation = Mathf.Rad2Deg * Mathf.Acos(xCos / yCos);
 
-        CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + "," + m_RawPosition + "," + m_RawOrientation + " == (" + x + "," + y + ")");
+        CGLogChannels.GetOrCreateInstance().LogChannel(CGLogChannel.JSON, "Node: " + m_RawGrid + "," + m_RawPosition + "," + m_RawOrientation + " == (" + x + "," + y + ")" + m_Orientation);
     }
 
     public override void AppendJSON(ref JObject json)

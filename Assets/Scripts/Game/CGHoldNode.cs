@@ -17,7 +17,7 @@ public class CGHoldNode : MonoBehaviour
     {
         m_NodeInfo = Info;
         gameObject.transform.localPosition = new Vector3(HorizontalPosition(), VerticalPosition(), 0f);
-        gameObject.transform.localEulerAngles = new Vector3(m_NodeInfo.m_Orientation, 0f, 0f);
+        gameObject.transform.localEulerAngles = new Vector3(0f, 0f, m_NodeInfo.m_Orientation);
         //gameObject.transform.localScale = new Vector3(5f, 5f, 5f);
         for (int i = 0; i < m_BigMeshes.Count; ++i)
         {
