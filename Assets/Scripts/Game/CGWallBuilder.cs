@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
 {
+    public Transform m_WallRoot;
     public Transform m_HoldParent;
     public GameObject m_HoldNodePrefab;
     public List<CGHoldNode> m_SpawnedHolds = new List<CGHoldNode>();
@@ -25,7 +26,8 @@ public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
         }
 
         LoadWall(0);
-    }
+        RecalibrateWall(new Vector3(0f, 0f, 0f))
+;    }
 
     void LoadWall(int WallIndex)
     {
@@ -38,7 +40,17 @@ public class CGWallBuilder : MonoBehaviourSingleton<CGWallBuilder>
                 m_SpawnedHolds.Add(holdNode);
                 holdNode.ProcessInfo(info);
             }
+            //m_HoldParent.rotation = Quaternion.Euler(0f, 90f, 0f);
         }
     }
 
+    public void RecalibrateWall(Vector3 handPosition)
+    {
+        Vector3 startingPosition = m_SpawnedHolds[0].transform.position;
+        Vector3 parentPosition = m_WallRoot.transform.position;
+        Vector3 transformedStart = m_WallRoot.InverseTransformPoint(startingPosition);
+        Vector3 transformedHand = m_WallRoot.InverseTransformPoint(handPosition);
+        Vector3 newRoot = parentPosition + (transformedHand - transformedStart);
+        m_WallRoot.transform.position = newRoot;
+    }
 }

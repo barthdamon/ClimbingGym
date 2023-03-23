@@ -92,9 +92,20 @@ public class CGNodeInfo : JSONObject
             }
         }
 
-        int x = (m_XGrid * 10) + m_XCoord;
-        int y = (m_YGrid * 10) + m_YCoord;
+
+        float xMultiplier = .125f;
+        float gridSpacer = .1875f;
+
+        float x = (m_XGrid * 10 * xMultiplier) + (m_XGrid * gridSpacer) + (m_XCoord * xMultiplier);
+        float y = (m_YGrid * 10 * xMultiplier) + (m_YGrid * gridSpacer) + (m_YCoord * xMultiplier);
         m_Position = new Vector2(x, y);
+
+
+
+
+
+
+
 
         string numbersOnlyRot = Regex.Replace(m_RawOrientation, "[^0-9]", "");
         m_YRotCoord = int.Parse(numbersOnlyRot);
@@ -111,8 +122,8 @@ public class CGNodeInfo : JSONObject
 
         m_RotPosition = new Vector2(xRot, yRot);
 
-        int xCos = xRot - x;
-        int yCos = yRot - y;
+        float xCos = xRot - x;
+        float yCos = yRot - y;
         if (yCos > 0)
         {
             m_Orientation = Mathf.Atan(xCos / yCos);

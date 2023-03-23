@@ -30,7 +30,7 @@ public class CGPlayerController : MonoBehaviour
         if (m_RightHand.IsSystemGestureInProgress)
         {
             m_DebugText.text = "System Detected";
-            m_WallObject.transform.position = new Vector3(m_RightHand.transform.position.x, m_RightHand.transform.position.y + m_RootWallOffset, m_RightHand.transform.position.z);
+            CGWallBuilder.GetOrCreateInstance().RecalibrateWall(m_RightHand.transform.position);
         }
     }
 }
