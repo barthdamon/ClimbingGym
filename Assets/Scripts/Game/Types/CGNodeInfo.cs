@@ -111,8 +111,8 @@ public class CGNodeInfo : JSONObject
             }
         }
 
-        int xRot = (m_XRotGrid * 10) + m_XRotCoord;
-        int yRot = (m_YRotGrid * 10) + m_YRotCoord;
+        float xRot = (m_XRotGrid * 10 * xMultiplier) + (m_XRotGrid * gridSpacer) + (m_XRotCoord * xMultiplier);
+        float yRot = (m_YRotGrid * 10 * xMultiplier) + (m_YRotGrid * gridSpacer) + (m_YRotCoord * xMultiplier);
 
         m_RotPosition = new Vector2(xRot, yRot);
 
